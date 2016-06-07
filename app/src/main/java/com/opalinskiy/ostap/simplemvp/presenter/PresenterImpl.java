@@ -37,4 +37,9 @@ public class PresenterImpl implements IPresenter {
         }
         view.showUser(msg);
     }
+
+    @Override
+    public void onDestroy() {
+        view = null;
+    }
 }

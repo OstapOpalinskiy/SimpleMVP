@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements IView, View.OnCli
     private TextView tvResult;
     private IPresenter presenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements IView, View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.btn_save:
                 String name = String.valueOf(etName.getText());
                 String email = String.valueOf(etEmail.getText());
@@ -59,5 +58,11 @@ public class MainActivity extends AppCompatActivity implements IView, View.OnCli
                 String id = String.valueOf(etId.getText());
                 presenter.onFind(id);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.onDestroy();
+        super.onDestroy();
     }
 }
